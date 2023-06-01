@@ -16,7 +16,7 @@ var sayilar = [45,856,12.5,63,0.02,154,2,54,78,61.7,654,26,12.5,63,969,152,32,31
 function KareninAlani(kenaruzunlugu){
 	return kenaruzunlugu*kenaruzunlugu;
 }
-
+console.log(KareninAlani(10))
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
 
@@ -29,14 +29,14 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(yaricap){
+	return 2 * pi * yaricap
 }
 
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
-
+console.log(CemberinCevresi(5))
 
 
 /* 	GÖREV 2:  
@@ -47,14 +47,14 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinAlani(yaricap,p){
+	return p * Math.pow(yaricap,2)
 }
 
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
-
+console.log(CemberinAlani(15,pi))
 
 /* 	GÖREV 3:
 		- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayılar ve ondalıklı sayılar bulunmaktadır. Bu diziyi kullanarak aşağıdakileri uygulayın:
@@ -73,46 +73,75 @@ function CemberinAlani(/* kodlar buraya */){
 
 
 
-	var ucetambolunenler, enkucuk, enbuyuk, ucebolunenlerintoplami, besyuzdenkucuksayilar, siralisayilar, tekraredensayilar;
+	var ucetambolunenler = [], enkucuk = sayilar[0], enbuyuk = 0, ucebolunenlerintoplami = 0, besyuzdenkucuksayilar =[], siralisayilar =[] , tekraredensayilar =[];
 	
 	//3a çözümü
 
-	/* kodlar buraya */
-	
+	for(let i = 0; i < sayilar.length; i++){	
+		if(sayilar[i] > enbuyuk){
+			enbuyuk = sayilar[i];
+		}
+		if( sayilar[i] < enkucuk){
+			enkucuk = sayilar[i];	
+		}
+	}
+	console.log(enbuyuk)
+	console.log(enkucuk)
 	
 	
 	// 3b çözümü:
 
-	/* kodlar buraya */
+	sayilar.forEach((eleman) =>{
+		if(eleman % 3 === 0){
+			ucetambolunenler.push(eleman)
+		}
+	} );
 		
-		
+	console.log(ucetambolunenler)	
 		
 	//3c çözümü:
 	
-	/* kodlar buraya */
+	ucebolunenlerintoplami = ucetambolunenler.reduce((total, item) => total + item); 
 
-	
+	console.log(ucebolunenlerintoplami)
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
-
-
+	besyuzdenkucuksayilar = sayilar.filter(eleman => eleman < 500)
+	console.log(besyuzdenkucuksayilar)
 
 	//3e çözümü
 
-	/* kodlar buraya */
-	
-	
+	siralisayilar = besyuzdenkucuksayilar.sort((a, b) => a - b)
+	console.log(siralisayilar)
 	//3f çözümü
+	/*3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayılar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
+			ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir" stringini `tekraredensayilar` dizisine aktaracağız.
+			💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.*/
 	
-	/* kodlar buraya */
+	const kacTaneVar ={};
 
-
-
-
-	
+	let count = 0;
+	for(let i =0; i<sayilar.length;i++){
+		if(kacTaneVar[sayilar[i]]){
+		kacTaneVar[sayilar[i]] += 1
+		}
+		else{
+			kacTaneVar[sayilar[i]] = 1
+		}
+		//console.log(kacTaneVar)
 		
+	}
+
+	console.log(Object.keys(kacTaneVar))
+	
+	for(let j = 0; j< Object.keys(kacTaneVar).length;j++){
+		if(Object.values(kacTaneVar)[j] >= 2){
+		tekraredensayilar.push(`${Object.keys(kacTaneVar)[j]} sayısı ${Object.values(kacTaneVar)[j]} kere tekrar edilmiştir` )
+		console.log("tekrar edenler",tekraredensayilar)
+		}
+	}
+	
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa(){
