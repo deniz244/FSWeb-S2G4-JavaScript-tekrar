@@ -101,14 +101,17 @@ console.log(CemberinAlani(15,pi))
 		
 	//3c çözümü:
 	
-	ucebolunenlerintoplami = ucetambolunenler.reduce((total, item) => total + item); 
+	ucebolunenlerintoplami = ucetambolunenler.reduce((total, item) => {
+		total += item;
+		return total
+	}); 
 
 	console.log(ucebolunenlerintoplami)
 	
 	//3d çözümü
 	
 	besyuzdenkucuksayilar = sayilar.filter(eleman => eleman < 500)
-	console.log(besyuzdenkucuksayilar)
+	console.log(besyuzdenkucuksayilar.length)
 
 	//3e çözümü
 
@@ -124,19 +127,28 @@ console.log(CemberinAlani(15,pi))
 		else{
 			kacTaneVar[sayilar[i]] = 1
 		}
-		//console.log(kacTaneVar)
 		
 	}
 
-	console.log(Object.keys(kacTaneVar)) //Objects.keys() veya Objects.values() keyleri veya valueleri içeren dizi geri döndürüyor
+	/*
+	//yukarıdaki for'la ayna
+	tekraredensayilar = sayilar.reduce((obj,sayi)=>{
+		retrun{
+			...obj,
+			[sayi]: obj.sayi ? obj.sayi + 1 : 1
+		}
+	}) 
+	*/
+
+	//console.log(Object.keys(kacTaneVar)) //Objects.keys() veya Objects.values() keyleri veya valueleri içeren dizi geri döndürüyor
 	
 	for(let j = 0; j< Object.keys(kacTaneVar).length;j++){
 		if(Object.values(kacTaneVar)[j] >= 2){
 		tekraredensayilar.push(`${Object.keys(kacTaneVar)[j]} sayısı ${Object.values(kacTaneVar)[j]} kere tekrar edilmiştir` )
-		console.log("tekrar edenler",tekraredensayilar)
+		
 		}
 	}
-	
+	console.log("tekrar edenler",tekraredensayilar)
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa(){
