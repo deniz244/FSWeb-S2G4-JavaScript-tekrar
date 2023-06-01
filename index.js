@@ -115,13 +115,8 @@ console.log(CemberinAlani(15,pi))
 	siralisayilar = besyuzdenkucuksayilar.sort((a, b) => a - b)
 	console.log(siralisayilar)
 	//3f çözümü
-	/*3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayılar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
-			ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir" stringini `tekraredensayilar` dizisine aktaracağız.
-			💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.*/
-	
 	const kacTaneVar ={};
 
-	let count = 0;
 	for(let i =0; i<sayilar.length;i++){
 		if(kacTaneVar[sayilar[i]]){
 		kacTaneVar[sayilar[i]] += 1
@@ -133,7 +128,7 @@ console.log(CemberinAlani(15,pi))
 		
 	}
 
-	console.log(Object.keys(kacTaneVar))
+	console.log(Object.keys(kacTaneVar)) //Objects.keys() veya Objects.values() keyleri veya valueleri içeren dizi geri döndürüyor
 	
 	for(let j = 0; j< Object.keys(kacTaneVar).length;j++){
 		if(Object.values(kacTaneVar)[j] >= 2){
