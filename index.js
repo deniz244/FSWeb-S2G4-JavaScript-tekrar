@@ -135,7 +135,7 @@ console.log(CemberinAlani(15,pi))
 	tekraredensayilar = sayilar.reduce((obj,sayi)=>{
 		retrun{
 			...obj,
-			[sayi]: obj.sayi ? obj.sayi + 1 : 1
+			[sayi]: obj[sayi] ? obj[sayi] + 1 : 1
 		}
 	}) 
 	*/
