@@ -132,7 +132,7 @@ console.log(CemberinAlani(15,pi))
 
 	/*
 	//yukarıdaki for'la ayna
-	tekraredensayilar = sayilar.reduce((obj,sayi)=>{
+	sayilarTekrarObj = sayilar.reduce((obj,sayi)=>{
 		retrun{
 			...obj,
 			[sayi]: obj[sayi] ? obj[sayi] + 1 : 1
@@ -141,7 +141,7 @@ console.log(CemberinAlani(15,pi))
 	*/
 
 	//console.log(Object.keys(kacTaneVar)) //Objects.keys() veya Objects.values() keyleri veya valueleri içeren dizi geri döndürüyor
-	
+	//for(let i in Object.keys(kacTaneVar))
 	for(let j = 0; j< Object.keys(kacTaneVar).length;j++){
 		if(Object.values(kacTaneVar)[j] >= 2){
 		tekraredensayilar.push(`${Object.keys(kacTaneVar)[j]} sayısı ${Object.values(kacTaneVar)[j]} kere tekrar edilmiştir` )
